@@ -15,12 +15,13 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerChatLowest(final AsyncPlayerChatEvent event) {
         String message = event.getMessage();
-        message = message.replaceAll("\\*\\*(.+?)\\*\\*", "&l$1&r");
-        message = message.replaceAll("\\*(.+?)\\*", "&o$1&r");
-        message = message.replaceAll("__(.+?)__", "&n$1&r");
-        message = message.replaceAll("_(.+?)_", "&o$1&r");
-        message = message.replaceAll("~~(.+?)~~", "&m$1&r");
-        message = message.replaceAll("`(.+?)`", "&k$1&r");
+        message = message.replaceAll("&", "\u00A7");
+        message = message.replaceAll("\\*\\*(.+?)\\*\\*", "\u00A7l$1\u00A7r");
+        message = message.replaceAll("\\*(.+?)\\*", "\u00A7o$1\u00A7r");
+        message = message.replaceAll("__(.+?)__", "\u00A7n$1\u00A7r");
+        message = message.replaceAll("_(.+?)_", "\u00A7o$1\u00A7r");
+        message = message.replaceAll("~~(.+?)~~", "\u00A7m$1\u00A7r");
+        message = message.replaceAll("`(.+?)`", "\u00A7k$1\u00A7r");
         event.setMessage(message);
     }
 }
